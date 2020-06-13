@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DISHES } from '../shared/dishes';
+import { DishService } from '../services/dish.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,13 +8,14 @@ import { DISHES } from '../shared/dishes';
 })
 export class MenuComponent implements OnInit {
 
-  dishes = DISHES;
+  dishes;
 
   selectedDish;
 
-  constructor() { }
+  constructor(private dishservice: DishService) { }
 
   ngOnInit(): void {
+    this.dishes = this.dishservice.getDishes();
   }
 
   onSelect(dish){
