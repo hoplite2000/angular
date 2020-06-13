@@ -11,4 +11,12 @@ export class DishService {
   getDishes(){
     return DISHES;
   }
+
+  getFeaturedDish(){
+    return DISHES.filter((dish) => (dish.featured))[0];
+  }
+
+  getDish(id){
+    return DISHES.filter((dish) => (dish.id === id))[0];
+  }
 }
