@@ -1,12 +1,12 @@
 <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px"  fxLayoutGap.xs="0">
-    <div fxFlex="40" *ngIf="selectedDish">
-        <mat-card>
+    <div fxFlex="40">
+        <mat-card *ngIf="dish">
             <mat-card-header>
-                <mat-card-title><h3>{{selectedDish.name | uppercase}}</h3></mat-card-title>
+                <mat-card-title><h3>{{dish.name | uppercase}}</h3></mat-card-title>
             </mat-card-header>
-            <img mat-card-image src={{selectedDish.image}} alt={{selectedDish.name}}>
+            <img mat-card-image src={{dish.image}} alt={{dish.name}}>
             <mat-card-content>
-                <p>{{selectedDish.description}}</p>
+                <p>{{dish.description}}</p>
             </mat-card-content>
             <mat-card-actions>
                 <button mat-button>Like</button>
@@ -15,12 +15,12 @@
         </mat-card>
     </div>
     <div fxFlex="40">
-        <mat-list fxFlex>
-            <h1>Comments</h1>
-            <mat-list-item *ngFor="let comment of selectedDish.comments">
-                <p mat-line>{{comment.comment}}</p>
-                <p mat-line>{{comment.author}}</p>
-                <p mat-line>-- {{comment.date | date}}</p>
+        <mat-list *ngIf="dish">
+            <h3>Comments</h3>
+            <mat-list-item *ngFor="let comment of dish.comments">
+                <p matLine>{{comment.comment}}</p>
+                <p matLine>{{comment.author}}</p>
+                <p matLine>-- {{comment.date | date}}</p>
             </mat-list-item>
         </mat-list>
     </div>
