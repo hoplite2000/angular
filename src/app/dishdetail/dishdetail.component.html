@@ -1,4 +1,7 @@
 <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px"  fxLayoutGap.xs="0">
+    <div [hidden]="dish">
+        <mat-spinner></mat-spinner> <h4>Loading ...</h4>
+    </div>
     <div fxFlex="40">
         <mat-card *ngIf="dish">
             <mat-card-header>
@@ -26,6 +29,4 @@
         </mat-list>
     </div>
 </div>
-<div class="container" fxLayout="column" flFlex [hidden]="dish">
-    <mat-spinner></mat-spinner> <h4> Loading ...</h4>
-</div>
+
