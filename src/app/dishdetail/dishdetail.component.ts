@@ -33,6 +33,7 @@ export class DishdetailComponent implements OnInit {
       'required':'Required'
     }
   }
+  errmsg: string;
 
   @ViewChild('cform')
   commentFormDirective;
@@ -46,7 +47,8 @@ export class DishdetailComponent implements OnInit {
       .subscribe((dishids) => this.dishIDs = dishids);
 
     this.route.params.pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
-      .subscribe((dish) => {this.dish = dish; this.nextprev(dish.id);}); 
+      .subscribe((dish) => {this.dish = dish; this.nextprev(dish.id);},
+        errmsg => this.errmsg = <any>errmsg); 
   }
 
   createform(){

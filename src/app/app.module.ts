@@ -34,6 +34,7 @@ import { LoginComponent } from './login/login.component';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { ProcessHTTPmsgService } from './services/process-httpmsg.service';
 
 import { baseUrl } from './shared/baseurl';
 
@@ -71,7 +72,13 @@ import { baseUrl } from './shared/baseurl';
     MatSliderModule,
     HttpClientModule
   ],
-  providers: [DishService, PromotionService, LeaderService, {provide: 'BaseUrl', useValue: baseUrl}],
+  providers: [
+    DishService,
+    PromotionService, 
+    LeaderService, 
+    ProcessHTTPmsgService, 
+    {provide: 'BaseUrl', useValue: baseUrl}
+  ],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
