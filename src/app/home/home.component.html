@@ -56,7 +56,7 @@
                 <p>{{leader.description}}</p>
             </mat-card-content>
         </mat-card>
-        <div flFlex [hidden]="leader || leadererrmsg">
+        <div fxFlex [hidden]="leader || leadererrmsg">
             <mat-spinner></mat-spinner> <h4> Loading ...</h4>
         </div>
         <div *ngIf="leadererrmsg">

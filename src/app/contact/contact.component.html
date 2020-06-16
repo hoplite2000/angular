@@ -35,7 +35,7 @@
 
   <div fxFlex fxFlexOffset="20px" class="form-size">
     <h3>Send us your feedback</h3>
-    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="feedbackForm" #fform="ngForm">
+    <form novalidate (ngSubmit)="onSubmit()" [formGroup]="feedbackForm" #fform="ngForm" *ngIf='!isloading' [@expand]>
       <p>
         <mat-form-field class="half-width">
           <input matInput formControlName="firstname" type="text" placeholder="First Name" required>
@@ -75,5 +75,18 @@
       </p>
       <button type="submit" mat-button class="background-primary text-floral-white" [disabled]=feedbackForm.invalid>Submit</button>
     </form>
+    <div *ngIf="isloading && !isshowing">
+      <mat-spinner></mat-spinner> <h4> Loading ...</h4>
+    </div>
+    <div *ngIf="isshowing" [@expand]>
+      <h3>Your Submission</h3>
+      <p>Firstname: {{feedback.firstname}}</p>
+      <p>Lastname: {{feedback.lastname}}</p>
+      <p>Tel. number: {{feedback.telnum}}</p>
+      <p>Email: {{feedback.email}}</p>
+      <p>Contact You: {{feedback.agree}}</p>
+      <p>Contact Type: {{feedback.contacttype}}</p>
+      <p>Feedback: {{feedback.message}}</p>
+    </div>
   </div>
 </div>
