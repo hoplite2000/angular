@@ -1,10 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { LeaderService } from '../services/leader.service';
+import { flyinout, expand } from '../animations/app.animation';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  host:{'[@flyinout]':'true', 'style': 'display: block;'},
+  animations: [flyinout(), expand()]
 })
 export class AboutComponent implements OnInit {
 
