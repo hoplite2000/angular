@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DishService } from '../services/dish.service'; 
 import { switchMap } from 'rxjs/operators';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Comment } from '../shared/comment';
-import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dishdetail',
@@ -38,7 +37,7 @@ export class DishdetailComponent implements OnInit {
   @ViewChild('cform')
   commentFormDirective;
 
-  constructor(private dishservice: DishService, private location: Location, private route: ActivatedRoute, private fb:FormBuilder) { 
+  constructor(private dishservice: DishService, private location: Location, private route: ActivatedRoute, private fb:FormBuilder, @Inject('BaseUrl') public BaseUrl) { 
     this.createform();
   }
 
